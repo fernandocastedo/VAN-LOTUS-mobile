@@ -1,6 +1,7 @@
 package com.example.vanlotus;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -71,7 +72,9 @@ public class LoginActivity extends Activity {
                     // Puedes guardar también el usuario si lo necesitas
                     // Navega a la siguiente pantalla
                     Toast.makeText(LoginActivity.this, "Login exitoso", Toast.LENGTH_SHORT).show();
-                    // startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     String msg = (response.body() != null) ? response.body().getMessage() : "Error desconocido";
                     Toast.makeText(LoginActivity.this, "Error: " + msg, Toast.LENGTH_SHORT).show();
